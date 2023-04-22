@@ -1,5 +1,6 @@
 import React from 'react';
 import { Board } from './components/tic-tac-toe/Board';
+import Counter from './components/Counter';
 
 export default function App() {
   return (
@@ -39,7 +40,7 @@ export default function App() {
         </p>
       </div>
       <Board />
-      {/*<Counter />*/}
+      <Counter />
     </div>
   );
 }
