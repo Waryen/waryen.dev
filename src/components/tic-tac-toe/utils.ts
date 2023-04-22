@@ -52,3 +52,38 @@ export const defaultTiles: TileParams[] = [
     value: TileValue.NA,
   },
 ];
+
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8], // Rows
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8], // Columns
+  [0, 4, 8],
+  [2, 4, 6], // Diagonals
+];
+
+export const checkForWinningState = (
+  tiles: TileParams[],
+  updateWinner: (player: Player) => void,
+) => {
+  const winner = winningCombos.find((combo) => {
+    const [a, b, c] = combo;
+    if (
+      tiles[a].value !== TileValue.NA &&
+      tiles[b].value !== TileValue.NA &&
+      tiles[c].value !== TileValue.NA
+    ) {
+      return (
+        tiles[a].value === tiles[b].value && tiles[b].value === tiles[c].value
+      );
+    }
+  });
+
+  if (winner) {
+    const playerValue = tiles[winner[0]].value;
+    const player = playerValue === TileValue.X ? Player.A : Player.B;
+    updateWinner(player);
+  }
+};

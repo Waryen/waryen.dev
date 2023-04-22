@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { TileParams, TileValue } from './utils';
 
 type TileProps = {
@@ -7,11 +7,11 @@ type TileProps = {
 };
 
 export const Tile = ({ tile, onTileClick }: TileProps) => {
-  const renderTile = useMemo(() => {
+  const renderTile = () => {
     if (tile.value === TileValue.X) {
-      return <span>X</span>;
+      return <span className="text-4xl">X</span>;
     } else if (tile.value === TileValue.O) {
-      return <span>O</span>;
+      return <span className="text-4xl">O</span>;
     } else {
       return (
         <span
@@ -20,11 +20,11 @@ export const Tile = ({ tile, onTileClick }: TileProps) => {
         ></span>
       );
     }
-  }, [tile]);
+  };
 
   return (
-    <div className="w-[50px] h-[50px] bg-white flex flex-column justify-center items-center text-black">
-      {renderTile}
+    <div className="w-[100px] h-[100px] bg-white flex flex-column justify-center items-center text-black border-[1px] border-black">
+      {renderTile()}
     </div>
   );
 };
