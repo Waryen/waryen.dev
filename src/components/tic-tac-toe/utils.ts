@@ -71,10 +71,6 @@ export const checkForWinningState = (
 ) => {
   const amountOfFilledTiles = tiles.filter((t) => t.value !== TileValue.NA);
 
-  if (amountOfFilledTiles.length === 9) {
-    return updateWinner(Player.C);
-  }
-
   const winner = winningCombos.find((combo) => {
     const [a, b, c] = combo;
     if (
@@ -87,6 +83,10 @@ export const checkForWinningState = (
       );
     }
   });
+
+  if (amountOfFilledTiles.length === 9 && !winner) {
+    return updateWinner(Player.C);
+  }
 
   if (winner) {
     const playerValue = tiles[winner[0]].value;
