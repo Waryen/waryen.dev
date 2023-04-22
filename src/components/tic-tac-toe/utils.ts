@@ -7,6 +7,7 @@ export enum TileValue {
 export enum Player {
   A = 'A',
   B = 'B',
+  C = 'Tie',
 }
 
 export type TileParams = {
@@ -68,6 +69,12 @@ export const checkForWinningState = (
   tiles: TileParams[],
   updateWinner: (player: Player) => void,
 ) => {
+  const amountOfFilledTiles = tiles.filter((t) => t.value !== TileValue.NA);
+
+  if (amountOfFilledTiles.length === 9) {
+    return updateWinner(Player.C);
+  }
+
   const winner = winningCombos.find((combo) => {
     const [a, b, c] = combo;
     if (

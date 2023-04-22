@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { checkForWinningState, defaultTiles, Player, TileValue } from './utils';
 import { Tile } from './Tile';
+import Message from './Message';
 
 export const Board = () => {
   const [tiles, setTiles] = useState(defaultTiles);
   const [currentPlayer, setCurrentPlayer] = useState(Player.A);
   const [winner, setWinner] = useState<Player>();
+  const [tie, setTie] = useState(false);
 
   const onTileClick = (id: number) => {
     if (winner) {
@@ -27,13 +29,18 @@ export const Board = () => {
   };
 
   const updateWinner = useCallback((player: Player) => {
-    setWinner(player);
+    if (player === Player.C) {
+      setTie(true);
+    } else {
+      setWinner(player);
+    }
   }, []);
 
   const resetGame = () => {
     setTiles(defaultTiles);
     setCurrentPlayer(Player.A);
     setWinner(undefined);
+    setTie(false);
   };
 
   useEffect(() => {
@@ -50,17 +57,10 @@ export const Board = () => {
           <Tile tile={tile} key={tile.id} onTileClick={onTileClick} />
         ))}
       </div>
-      {!winner ? (
-        <p className="text-center mt-2 text-lg">
-          It's player {currentPlayer} turn
-        </p>
-      ) : (
-        <p className="text-2xl mt-4">Player {winner} has won the game!</p>
-      )}
+      <Message tie={tie} currentPlayer={currentPlayer} winner={winner} />
       <button
         className="bg-red-600 py-2 px-4 text-lg rounded mt-8 hover:bg-red-400 focus:bg-red-400"
         onClick={resetGame}
-        disabled={!winner}
       >
         Rest game
       </button>
