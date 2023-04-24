@@ -1,17 +1,19 @@
 import React from 'react';
-import { Board } from './components/tic-tac-toe/Board';
-import Counter from './components/Counter';
 
 export default function App() {
+  const openRickRollLink = () => {
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+  };
+
   return (
-    <div className="flex grow flex-col items-center py-10 md:py-20 px-5 md:px-10">
+    <div className="flex flex-col items-center w-full py-10 md:py-20 px-5 md:px-10">
       <h1 className="text-red-600 text-5xl md:text-7xl font-bold capitalize mb-10">
-        waryen.dev
+        Hello world! 👋
       </h1>
-      <div className="flex flex-col items-center mb-10">
-        <p className="text-xl md:text-2xl mb-3">Hello world! 👋</p>
-        <p className="text-md text-center md:text-xl mb-2">
-          My name is Jonathan and I'm a software engineer working at{' '}
+      <div className="flex grow flex-col items-center">
+        <p className="text-xl text-center md:text-2xl mb-2">
+          My name is Jonathan, I live in Belgium and I'm a software engineer
+          working at{' '}
           <a
             href="https://mirahi.io"
             target="_blank"
@@ -20,7 +22,7 @@ export default function App() {
             Mirahi.io
           </a>
         </p>
-        <p className="text-md md:text-xl">
+        <p className="text-xl md:text-2xl">
           Checkout my{' '}
           <a
             target="_blank"
@@ -38,9 +40,18 @@ export default function App() {
             Twitter
           </a>
         </p>
+        <figure className="overflow-hidden rounded-full mt-12 w-[300px] md:w-[400px]">
+          <img
+            onClick={openRickRollLink}
+            loading="lazy"
+            src="jonathan.png"
+            alt="Picture of Jonathan"
+          />
+        </figure>
+        <p className="flex grow items-end mt-4 text-sm">
+          There is an easter egg hidden on this page
+        </p>
       </div>
-      <Board />
-      <Counter />
     </div>
   );
 }
