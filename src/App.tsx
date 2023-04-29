@@ -40,7 +40,7 @@ export default function App() {
             Twitter
           </a>
         </p>
-        <figure className="overflow-hidden rounded-full mt-12 w-[300px] md:w-[400px]">
+        <figure className="overflow-hidden rounded-full mt-12 w-[250px] md:w-[300px]">
           <img
             onClick={openRickRollLink}
             loading="lazy"
@@ -48,9 +48,6 @@ export default function App() {
             alt="Picture of Jonathan"
           />
         </figure>
-        <p className="flex grow items-end mt-4 text-sm">
-          There is an easter egg hidden on this page
-        </p>
       </div>
     </div>
   );
