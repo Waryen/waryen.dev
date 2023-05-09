@@ -22,7 +22,7 @@ export default function App() {
             Mirahi.io
           </a>
         </p>
-        <p className="text-xl md:text-2xl">
+        <p className="text-xl md:text-2xl mb-2">
           Checkout my{' '}
           <a
             target="_blank"
@@ -38,6 +38,16 @@ export default function App() {
             href="https://twitter.com/aka_waryen"
           >
             Twitter
+          </a>
+        </p>
+        <p className="text-xl md:text-2xl">
+          I also write blogposts about tech stuff{' '}
+          <a
+            target="_blank"
+            className="text-red-600 hover:text-red-400 focus:text-red-400"
+            href="https://garden.mirahi.io"
+          >
+            over here
           </a>
         </p>
         <figure className="overflow-hidden rounded-full mt-12 w-[250px] md:w-[300px]">
