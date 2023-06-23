@@ -1,12 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "target": "es5",
-        "sourceMap": true,
-        "esModuleInterop": true,
-        "jsx": "react-jsx",
-        "strict": true
-    },
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "es5",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "allowJs": true,
+    "moduleResolution": "Node"
+  },
+  "exclude": ["node_modules"]
 }
