@@ -7,6 +7,7 @@ import { ReactElement } from 'react';
 type Link = {
   url: string;
   icon: ReactElement;
+  label: string;
 };
 
 export const Links = () => {
@@ -14,18 +15,22 @@ export const Links = () => {
     {
       icon: <GitHubIcon fontSize="large" />,
       url: 'https://github.com/Waryen',
+      label: 'Github',
     },
     {
       icon: <TwitterIcon fontSize="large" />,
       url: 'https://twitter.com/aka_waryen',
+      label: 'Twitte',
     },
     {
       icon: <LinkedInIcon fontSize="large" />,
       url: 'https://www.linkedin.com/in/jonathan-gomand',
+      label: 'LinkedIn',
     },
     {
       icon: <ArticleIcon fontSize="large" />,
       url: 'https://garden.mirahi.io',
+      label: 'Mirahi Digital Garden',
     },
   ];
 
@@ -33,7 +38,7 @@ export const Links = () => {
     <ul className="flex flex-row my-4">
       {links.map((link) => (
         <li key={link.url} className="mx-2">
-          <a href={link.url} target="_blank">
+          <a href={link.url} target="_blank" aria-label={link.label}>
             {link.icon}
           </a>
         </li>
